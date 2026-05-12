@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Marvel School | Baharampora Kunzer - Premium Crèche & Preschool</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e67e22;
+            --accent: #f1c40f;
+            --light: #ecf0f1;
+            --success: #27ae60;
+            --danger: #e74c3c;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+        }
+        
+        /* Navigation */
+        nav { 
+            background: var(--primary); 
+            color: white; 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: 500; 
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero Section */
+        header { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; 
+            background-position: center; 
+            height: 60vh;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: white;
+        }
+        header h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; }
+        .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn { 
+            padding: 12px 30px; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 1rem; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: all 0.3s;
+        }
+        .btn-primary { 
+            background: var(--secondary); 
+            color: white; 
+        }
+        .btn-primary:hover { background: #d35400; transform: translateY(-2px); }
+        .btn-secondary { 
+            background: white; 
+            color: var(--primary); 
+        }
+        .btn-secondary:hover { background: var(--light); }
+
+        /* Sections */
+        section { padding: 4rem 10%; }
+        section.alt { background: var(--light); }
+        h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary); text-align: center; }
+        h3 { color: var(--secondary); margin-top: 15px; }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px; 
+        }
+        .card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 8px; 
+            text-align: center; 
+            border-bottom: 4px solid var(--secondary); 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        .card-icon { font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* Programs Section */
+        .program-item { 
+            background: white; 
+            padding: 20px; 
+            margin: 15px 0; 
+            border-left: 5px solid var(--secondary);
+            border-radius: 5px;
+        }
+        .age-badge { 
+            display: inline-block; 
+            background: var(--accent); 
+            color: var(--primary); 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-weight: bold; 
+            margin-top: 10px;
+        }
+
+        /* Schedule */
+        .schedule-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px;
+            background: white;
+        }
+        .schedule-table th, .schedule-table td { 
+            padding: 12px; 
+            text-align: left; 
+            border: 1px solid #ddd;
+        }
+        .schedule-table th { 
+            background: var(--primary); 
+            color: white; 
+            font-weight: bold;
+        }
+        .schedule-table tr:nth-child(even) { background: var(--light); }
+
+        /* Fees Table */
+        .fees-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px;
+            background: white;
+        }
+        .fees-table th, .fees-table td { 
+            padding: 15px; 
+            text-align: left; 
+            border: 1px solid #ddd;
+        }
+        .fees-table th { 
+            background: var(--secondary); 
+            color: white; 
+            font-weight: bold;
+        }
+        .fees-table .price { 
+            font-weight: bold; 
+            color: var(--secondary); 
+            font-size: 1.2rem;
+        }
+
+        /* Form Styles */
+        .form-group { 
+            margin-bottom: 20px;
+        }
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+            font-weight: 500; 
+            color: var(--primary);
+        }
+        input, textarea, select { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            font-family: inherit;
+        }
+        input:focus, textarea:focus, select:focus { 
+            outline: none; 
+            border-color: var(--secondary); 
+            box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
+        }
+
+        /* Gallery */
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 15px; 
+            margin-top: 30px;
+        }
+        .gallery-item { 
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 8px;
+            height: 250px;
+        }
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* Testimonials */
+        .testimonial { 
+            background: white; 
+            padding: 20px; 
+            margin: 15px 0; 
+            border-left: 4px solid var(--success);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .testimonial-author { 
+            font-weight: bold; 
+            color: var(--primary); 
+            margin-top: 10px;
+        }
+        .stars { color: var(--accent); font-size: 1.2rem; }
+
+        /* FAQs */
+        .faq-item { 
+            background: white; 
+            margin: 15px 0; 
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .faq-question { 
+            padding: 15px; 
+            background: var(--light); 
+            cursor: pointer; 
+            font-weight: bold; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question:hover { background: #d5dbde; }
+        .faq-answer { 
+            padding: 15px; 
+            display: none;
+        }
+        .faq-answer.active { display: block; }
+        .faq-toggle { font-size: 1.2rem; }
+
+        /* Staff */
+        .staff-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; 
+            margin-top: 30px;
+        }
+        .staff-card { 
+            text-align: center; 
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .staff-photo { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 50%; 
+            background: var(--light); 
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        .staff-name { 
+            font-weight: bold; 
+            color: var(--primary); 
+            margin-bottom: 5px;
+        }
+        .staff-position { 
+            color: var(--secondary); 
+            font-size: 0.9rem;
+        }
+
+        /* Contact Form */
+        .contact-container { max-width: 600px; margin: 0 auto; }
+        .contact-info { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 30px;
+        }
+        .info-box { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer { 
+            background: #1a1a1a; 
+            color: white; 
+            padding: 3rem 5%; 
+        }
+        .footer-content { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-section h4 { margin-bottom: 15px; color: var(--accent); }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin: 8px 0; }
+        .footer-section a { color: #bbb; text-decoration: none; transition: color 0.3s; }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { 
+            text-align: center; 
+            border-top: 1px solid #444; 
+            padding-top: 20px;
+        }
+        .credit { 
+            color: var(--accent); 
+            font-weight: bold; 
+            margin-top: 10px;
+        }
+        .social-links { 
+            display: flex; 
+            gap: 15px; 
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .social-links a { 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .social-links a:hover { background: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 768px) { 
+            header h1 { font-size: 2rem; }
+            header p { font-size: 1rem; }
+            header { height: 40vh; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            nav { padding: 1rem 3%; }
+            section { padding: 2rem 5%; }
+            h2 { font-size: 1.8rem; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; }
+            .schedule-table, .fees-table { font-size: 0.9rem; }
+            .schedule-table th, .schedule-table td, 
+            .fees-table th, .fees-table td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🎨 MINI MARVEL SCHOOL</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#staff">Staff</a>
+            <a href="#admission">Admission</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger">☰</div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="home">
+        <h1>Welcome to Mini Marvel School</h1>
+        <p>Baharampora Kunzer: Shaping the Brilliance of Tomorrow</p>
+        <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="document.getElementById('admission').scrollIntoView({behavior: 'smooth'});">Enroll Now</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Book a Tour</button>
+        </div>
+    </header>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="alt">
+        <h2>Our Mission & Vision</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+            Inspired by the vision of <strong>Muntazir Momin</strong>, Mini Marvel School is dedicated to providing high-quality foundation education in the heart of Kunzer. We focus on intellectual growth, moral values, and creative exploration for every child.
+        </p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Quality Education</h3>
+                <p>Curriculum designed to meet modern standards while keeping local values alive.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👩‍🏫</div>
+                <h3>Skilled Faculty</h3>
+                <p>Teachers who are mentors and guides for the tiny tots of Baharampora.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎭</div>
+                <h3>Holistic Growth</h3>
+                <p>Focusing on extracurricular activities, sports, and creative arts.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Safe Environment</h3>
+                <p>State-of-the-art facilities with strict safety protocols and monitoring.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🍎</div>
+                <h3>Nutritious Meals</h3>
+                <p>Balanced, healthy meals prepared daily following dietary guidelines.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">❤️</div>
+                <h3>Caring Community</h3>
+                <p>Individualized attention and support for every child's development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS SECTION -->
+    <section id="programs">
+        <h2>Our Programs & Age Groups</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+            We offer carefully designed programs tailored to each developmental stage of your child.
+        </p>
+        
+        <div class="program-item">
+            <h3>👶 Infant Care (3-12 months)</h3>
+            <p>Nurturing care with focus on sensory development, bonding, and basic motor skills development.</p>
+            <div class="age-badge">3-12 Months</div>
+        </div>
+
+        <div class="program-item">
+            <h3>🧸 Toddler Program (1-2 years)</h3>
+            <p>Language development, social interaction, and early learning through play. Activities include music, movement, and exploration.</p>
+            <div class="age-badge">1-2 Years</div>
+        </div>
+
+        <div class="program-item">
+            <h3>🎨 Pre-School (2-3 years)</h3>
+            <p>Introduction to structured learning, colors, shapes, numbers, and early literacy. Group activities and outdoor play.</p>
+            <div class="age-badge">2-3 Years</div>
+        </div>
+
+        <div class="program-item">
+            <h3>🎓 Upper Pre-School (3-5 years)</h3>
+            <p>Curriculum includes English, Mathematics, General Knowledge, Art, Music, Physical Education, and Computer Basics.</p>
+            <div class="age-badge">3-5 Years</div>
+        </div>
+
+        <h3 style="margin-top: 40px;">Daily Routine & Schedule</h3>
+        <table class="schedule-table">
+            <tr>
+                <th>Time</th>
+                <th>Activity</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>8:00 AM - 8:30 AM</td>
+                <td>Arrival & Reception</td>
+                <td>Drop-off and settling in with warm welcome</td>
+            </tr>
+            <tr>
+                <td>8:30 AM - 9:00 AM</td>
+                <td>Morning Assembly</td>
+                <td>Prayer, pledge, and morning exercises</td>
+            </tr>
+            <tr>
+                <td>9:00 AM - 10:00 AM</td>
+                <td>Learning Activities</td>
+                <td>Letters, numbers, and interactive learning</td>
+            </tr>
+            <tr>
+                <td>10:00 AM - 10:30 AM</td>
+                <td>Snack Time</td>
+                <td>Healthy refreshments and hydration</td>
+            </tr>
+            <tr>
+                <td>10:30 AM - 11:30 AM</td>
+                <td>Creative Activities</td>
+                <td>Art, music, craft, and play</td>
+            </tr>
+            <tr>
+                <td>11:30 AM - 12:00 PM</td>
+                <td>Outdoor Play</td>
+                <td>Physical activities in safe playground</td>
+            </tr>
+            <tr>
+                <td>12:00 PM - 1:00 PM</td>
+                <td>Lunch Time</td>
+                <td>Nutritious home-style meals</td>
+            </tr>
+            <tr>
+                <td>1:00 PM - 2:30 PM</td>
+                <td>Rest/Nap Time</td>
+                <td>Quiet time for rejuvenation</td>
+            </tr>
+            <tr>
+                <td>2:30 PM - 3:30 PM</td>
+                <td>Evening Activities</td>
+                <td>Games, stories, and interactive sessions</td>
+            </tr>
+            <tr>
+                <td>3:30 PM - 4:00 PM</td>
+                <td>Pickup Time</td>
+                <td>Safe pick-up with parent updates</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="alt">
+        <h2>School Gallery</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+            Glimpses of learning, joy, and growth at Mini Marvel School.
+        </p>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae3dcd1c3d66?auto=format&fit=crop&w=400&q=80" alt="Classroom Learning">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80" alt="Outdoor Activities">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1578896134184-5a4b74a35b6c?auto=format&fit=crop&w=400&q=80" alt="Art & Craft">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1577896657095-b2c4c531cc24?auto=format&fit=crop&w=400&q=80" alt="Sports Activities">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516534775068-bb6c54e928f7?auto=format&fit=crop&w=400&q=80" alt="Music & Dance">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1569163139394-de4798aa62b3?auto=format&fit=crop&w=400&q=80" alt="Play Area">
+            </div>
+        </div>
+    </section>
+
+    <!-- STAFF SECTION -->
+    <section id="staff">
+        <h2>Meet Our Team</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+            Our dedicated team of trained and experienced educators committed to your child's development.
+        </p>
+        
+        <div class="staff-grid">
+            <div class="staff-card">
+                <div class="staff-photo">👨‍💼</div>
+                <div class="staff-name">Muntazir Momin</div>
+                <div class="staff-position">Principal/Manager</div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Visionary leader with 15+ years in education</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo">👩‍🏫</div>
+                <div class="staff-name">Ms. Fatima Khan</div>
+                <div class="staff-position">Lead Teacher (3-5 Years)</div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">B.Ed, Montessori Certified</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo">👩‍🏫</div>
+                <div class="staff-name">Ms. Aisha Ahmed</div>
+                <div class="staff-position">Teacher (Toddlers)</div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Child Development Specialist</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo">👩‍⚕️</div>
+                <div class="staff-name">Ms. Zainab Hassan</div>
+                <div class="staff-position">Health & Nutrition Officer</div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Certified in Child Nutrition</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo">👨‍🔧</div>
+                <div class="staff-name">Mr. Ali Khan</div>
+                <div class="staff-position">Facility Manager</div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Ensures safety and maintenance</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo">👩‍🎨</div>
+                <div class="staff-name">Ms. Sana Malik</div>
+                <div class="staff-position">Arts & Activities Coordinator</div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Creative Learning Facilitator</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="alt">
+        <h2>What Parents Say</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+            Real experiences from our happy families.
+        </p>
+        
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p><em>"Mini Marvel has been a wonderful experience for our daughter. The teachers are caring and attentive. We've seen tremendous growth in her learning and confidence!"</em></p>
+                <div class="testimonial-author">— Mrs. Ayesha Wani, Parent</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p><em>"The curriculum is excellent, and the daily updates keep us connected to our child's activities. Highly recommended!"</em></p>
+                <div class="testimonial-author">— Mr. Imran Zargar, Parent</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p><em>"Best decision we made for our child's early education. Safe, nurturing, and focused on holistic development."</em></p>
+                <div class="testimonial-author">— Mrs. Noor Bhat, Parent</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMISSION SECTION -->
+    <section id="admission">
+        <h2>Admission & Fees</h2>
+        
+        <h3 style="margin-top: 30px; margin-bottom: 20px;">Fee Structure</h3>
+        <table class="fees-table">
+            <tr>
+                <th>Program</th>
+                <th>Age Group</th>
+                <th>Monthly Fee</th>
+                <th>Annual Fee</th>
+            </tr>
+            <tr>
+                <td>Infant Care</td>
+                <td>3-12 Months</td>
+                <td class="price">₹4,500</td>
+                <td class="price">₹50,000</td>
+            </tr>
+            <tr>
+                <td>Toddler Program</td>
+                <td>1-2 Years</td>
+                <td class="price">₹3,500</td>
+                <td class="price">₹38,000</td>
+            </tr>
+            <tr>
+                <td>Pre-School</td>
+                <td>2-3 Years</td>
+                <td class="price">₹3,000</td>
+                <td class="price">₹33,000</td>
+            </tr>
+            <tr>
+                <td>Upper Pre-School</td>
+                <td>3-5 Years</td>
+                <td class="price">₹2,500</td>
+                <td class="price">₹28,000</td>
+            </tr>
+        </table>
+
+        <h3 style="margin-top: 30px; margin-bottom: 20px;">Additional Services</h3>
+        <div class="grid">
+            <div class="card">
+                <h3>🚌 Transportation</h3>
+                <p><strong>₹500/month</strong> - Safe and secure pick-up & drop-off service</p>
+            </div>
+            <div class="card">
+                <h3>🎵 Special Classes</h3>
+                <p><strong>₹300/month</strong> - Music, dance, swimming, or sports</p>
+            </div>
+            <div class="card">
+                <h3>📚 Activity Fee</h3>
+                <p><strong>₹200/month</strong> - Art supplies, craft materials, and events</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 30px; margin-bottom: 20px;">Admission Requirements</h3>
+        <div style="background: white; padding: 20px; border-radius: 8px; max-width: 600px; margin: 0 auto;">
+            <ul style="list-style: none;">
+                <li style="padding: 10px; border-bottom: 1px solid #ddd;">✓ Birth Certificate (attested copy)</li>
+                <li style="padding: 10px; border-bottom: 1px solid #ddd;">✓ Immunization Records</li>
+                <li style="padding: 10px; border-bottom: 1px solid #ddd;">✓ Medical Report from certified doctor</li>
+                <li style="padding: 10px; border-bottom: 1px solid #ddd;">✓ Parent ID Proof</li>
+                <li style="padding: 10px; border-bottom: 1px solid #ddd;">✓ Address Proof</li>
+                <li style="padding: 10px; border-bottom: 1px solid #ddd;">✓ 3 Passport-size Photographs</li>
+                <li style="padding: 10px;">✓ Emergency Contact Details</li>
+            </ul>
+        </div>
+
+        <h3 style="margin-top: 40px; margin-bottom: 20px;">Enrollment Form</h3>
+        <div class="contact-container" style="background: var(--light); padding: 30px; border-radius: 8px;">
+            <form>
+                <div class="form-group">
+                    <label>Child's Full Name *</label>
+                    <input type="text" required placeholder="Enter child's name">
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth *</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Select Program *</label>
+                    <select required>
+                        <option value="">-- Select Program --</option>
+                        <option value="infant">Infant Care (3-12 months)</option>
+                        <option value="toddler">Toddler Program (1-2 years)</option>
+                        <option value="preschool">Pre-School (2-3 years)</option>
+                        <option value="upper">Upper Pre-School (3-5 years)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Parent/Guardian Name *</label>
+                    <input type="text" required placeholder="Enter guardian's name">
+                </div>
+                <div class="form-group">
+                    <label>Contact Number *</label>
+                    <input type="tel" required placeholder="Enter contact number">
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required placeholder="Enter email address">
+                </div>
+                <div class="form-group">
+                    <label>Address *</label>
+                    <textarea rows="3" required placeholder="Enter full address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to the terms and conditions
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="alt">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div style="max-width: 800px; margin: 30px auto;">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What is the minimum age for admission?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept children from 3 months onwards in our Infant Care program. We have programs designed for every developmental stage from 3 months to 5 years.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What are your working hours?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our school operates from 8:00 AM to 4:00 PM, Monday to Friday. We also offer extended care till 5:00 PM for an additional fee. Saturday activities are available on request.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you provide transportation?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we provide safe and secure transportation services. Transportation fee is ₹500/month, and all vehicles are equipped with trackers and first-aid kits.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What meals are provided?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We provide nutritious home-style meals including lunch and snacks. Meals are prepared fresh daily, and we accommodate dietary preferences and allergies. Special care is taken for younger children.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do you ensure child safety?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Safety is our top priority. We have CCTV surveillance in all areas, trained staff in first-aid and CPR, secure entry/exit protocols, and regular safety drills. Parents receive daily updates via our app.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What is your sick child policy?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>If a child is sick (fever, vomiting, diarrhea), they should not attend school. We require a doctor's clearance before readmission. In case of emergencies, we contact parents immediately.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you follow any specific curriculum?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We follow a play-based, child-centered approach that blends with the Montessori philosophy and NCERT guidelines. We focus on developmental milestones rather than rote learning.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How often do you communicate with parents?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We maintain daily communication through our school app, monthly parent meetings, and quarterly progress reports. Teachers are available for individual consultations as needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POLICIES SECTION -->
+    <section id="policies">
+        <h2>School Policies</h2>
+        
+        <div style="max-width: 900px; margin: 30px auto;">
+            <div class="program-item">
+                <h3>📋 Attendance Policy</h3>
+                <p>Regular attendance is important for your child's development. We maintain 80% attendance as the minimum requirement. Absences should be communicated in advance when possible.</p>
+            </div>
+
+            <div class="program-item">
+                <h3>🚫 Pick-up & Drop-off Policy</h3>
+                <p>Only authorized guardians listed during admission are allowed to pick up children. We verify ID before release. Late pick-ups after 4:00 PM incur a charge of ₹50 per 15 minutes.</p>
+            </div>
+
+            <div class="program-item">
+                <h3>💊 Medication Policy</h3>
+                <p>Any medication must be provided in original containers with proper labeling. We require written authorization from parents. Our staff will administer medication as prescribed.</p>
+            </div>
+
+            <div class="program-item">
+                <h3>🍽️ Allergy & Dietary Policy</h3>
+                <p>We maintain detailed records of all allergies. Meals are customized accordingly. Parents must inform us of any new allergies immediately.</p>
+            </div>
+
+            <div class="program-item">
+                <h3>📸 Photography & Privacy Policy</h3>
+                <p>We take photos for learning documentation and developmental records. We respect privacy and do not share images without explicit parental consent.</p>
+            </div>
+
+            <div class="program-item">
+                <h3>💰 Fee Payment Policy</h3>
+                <p>Monthly fees are due by the 5th of each month. We offer flexible payment options. Late fees of ₹100/day apply after the 10th. Annual maintenance charge is ₹1,000.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="alt">
+        <h2>Visit Us & Get in Touch</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-box">
+                    <h3 style="color: var(--primary); font-size: 1.3rem;">📍 Address</h3>
+                    <p>Baharampora<br>Kunzer, District Baramulla<br>Jammu & Kashmir, India</p>
+                </div>
+                <div class="info-box">
+                    <h3 style="color: var(--primary); font-size: 1.3rem;">📞 Contact</h3>
+                    <p><strong>Phone:</strong> +91-XXXXX-XXXXX<br><strong>WhatsApp:</strong> +91-XXXXX-XXXXX<br><strong>Email:</strong> info@minimarvel.edu.in</p>
+                </div>
+                <div class="info-box">
+                    <h3 style="color: var(--primary); font-size: 1.3rem;">🕒 Hours</h3>
+                    <p><strong>Mon-Fri:</strong> 8:00 AM - 4:00 PM<br><strong>Sat:</strong> On Request<br><strong>Sun:</strong> Closed</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin: 40px 0 20px;">Send us a Message</h3>
+            <form style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" required placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label>Subject *</label>
+                    <input type="text" required placeholder="What is this about?">
+                </div>
+                <div class="form-group">
+                    <label>Message *</label>
+                    <textarea rows="5" required placeholder="Type your message here..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+
+            <div style="margin-top: 30px; text-align: center; background: white; padding: 20px; border-radius: 8px;">
+                <h3>Follow Us</h3>
+                <p>Connect with us on social media for updates and events</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="WhatsApp">W</a>
+                    <a href="#" title="YouTube">▶</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Mini Marvel School is dedicated to providing quality foundation education with a focus on holistic development of every child.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#admission">Admission</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="#programs">Infant Care</a></li>
+                    <li><a href="#programs">Toddler Program</a></li>
+                    <li><a href="#programs">Pre-School</a></li>
+                    <li><a href="#programs">Upper Pre-School</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>📍 Baharampora, Kunzer</li>
+                    <li>📞 +91-XXXXX-XXXXX</li>
+                    <li>✉️ info@minimarvel.edu.in</li>
+                    <li>🕒 Mon-Fri: 8 AM - 4 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mini Marvel School Baharampora. All Rights Reserved.</p>
+            <div class="credit">
+                Designed & Developed by MAJID
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle FAQ answers
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            
+            if (answer.classList.contains('active')) {
+                answer.classList.remove('active');
+                toggle.textContent = '+';
+            } else {
+                answer.classList.add('active');
+                toggle.textContent = '−';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
