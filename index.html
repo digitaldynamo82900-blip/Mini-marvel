@@ -106,6 +106,93 @@
         }
         .card-icon { font-size: 2.5rem; margin-bottom: 10px; }
 
+        /* Owner Section */
+        .owner-spotlight {
+            background: linear-gradient(135deg, var(--secondary), #d35400);
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .owner-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .owner-image {
+            text-align: center;
+        }
+        .owner-image-placeholder {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            border: 5px solid white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+        .influencer-badge {
+            display: inline-block;
+            background: #ff6b9d;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 15px;
+            position: relative;
+        }
+        .influencer-badge::before {
+            content: "⭐ ";
+        }
+        .owner-info h2 {
+            text-align: left;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .owner-info .position {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .owner-info p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .social-followers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .follower-stat {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .follower-stat .number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: block;
+        }
+        .follower-stat .label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
         /* Programs Section */
         .program-item { 
             background: white; 
@@ -265,6 +352,10 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+        .staff-card.principal-card {
+            border: 3px solid var(--secondary);
+            background: linear-gradient(to bottom, #fff9e6, white);
+        }
         .staff-photo { 
             width: 120px; 
             height: 120px; 
@@ -280,10 +371,31 @@
             font-weight: bold; 
             color: var(--primary); 
             margin-bottom: 5px;
+            font-size: 1.1rem;
         }
         .staff-position { 
             color: var(--secondary); 
             font-size: 0.9rem;
+        }
+        .principal-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        .verified-influencer {
+            display: inline-block;
+            background: #ff6b9d;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 8px;
         }
 
         /* Contact Form */
@@ -364,6 +476,18 @@
             .schedule-table, .fees-table { font-size: 0.9rem; }
             .schedule-table th, .schedule-table td, 
             .fees-table th, .fees-table td { padding: 8px; }
+            .owner-content {
+                grid-template-columns: 1fr;
+            }
+            .owner-info h2 {
+                text-align: center;
+            }
+            .owner-info p {
+                text-align: center;
+            }
+            .social-followers {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -374,6 +498,7 @@
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
+            <a href="#owner">Founder</a>
             <a href="#programs">Programs</a>
             <a href="#gallery">Gallery</a>
             <a href="#staff">Staff</a>
@@ -436,8 +561,82 @@
         </div>
     </section>
 
+    <!-- OWNER/FOUNDER SPOTLIGHT SECTION -->
+    <section id="owner">
+        <h2 style="margin-bottom: 30px;">Meet Our Founder & Visionary Leader</h2>
+        
+        <div class="owner-spotlight">
+            <div class="owner-content">
+                <div class="owner-image">
+                    <div class="owner-image-placeholder">👨‍💼</div>
+                    <div class="influencer-badge">Social Media Influencer</div>
+                </div>
+                <div class="owner-info">
+                    <h2>Muntazir Momin</h2>
+                    <div class="position">Founder & Principal 🌟</div>
+                    <p>
+                        Muntazir Momin is the visionary founder of Mini Marvel School, bringing together his passion for education and social media influence to create a world-class learning environment for children in Baharampora. With years of experience in community engagement and educational development, he has established Mini Marvel School as a beacon of quality education in the region.
+                    </p>
+                    <p>
+                        As a renowned social media influencer, Muntazir has leveraged his platform to promote educational awareness and child development practices. His commitment to transforming early childhood education has inspired thousands of families across Kashmir.
+                    </p>
+                    <div class="social-followers">
+                        <div class="follower-stat">
+                            <span class="number">250K+</span>
+                            <span class="label">Instagram</span>
+                        </div>
+                        <div class="follower-stat">
+                            <span class="number">180K+</span>
+                            <span class="label">Facebook</span>
+                        </div>
+                        <div class="follower-stat">
+                            <span class="number">120K+</span>
+                            <span class="label">YouTube</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="max-width: 900px; margin: 40px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h3 style="text-align: center; margin-bottom: 20px;">Muntazir's Contributions to Education</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Education Advocate</h3>
+                    <p>Promoting quality education and child welfare awareness through digital media</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Community Builder</h3>
+                    <p>Creating meaningful connections between educators, parents, and stakeholders</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <h3>Innovation Leader</h3>
+                    <p>Bringing modern pedagogical approaches and technology to traditional education</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>Social Responsibility</h3>
+                    <p>Committed to accessible, quality education for all children regardless of background</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Digital Influence</h3>
+                    <p>Using social media to inspire and educate thousands about child development</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>Excellence Standard</h3>
+                    <p>Setting benchmarks for quality preschool education in Kashmir</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PROGRAMS SECTION -->
-    <section id="programs">
+    <section id="programs" class="alt">
         <h2>Our Programs & Age Groups</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
             We offer carefully designed programs tailored to each developmental stage of your child.
@@ -528,7 +727,7 @@
     </section>
 
     <!-- GALLERY SECTION -->
-    <section id="gallery" class="alt">
+    <section id="gallery">
         <h2>School Gallery</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
             Glimpses of learning, joy, and growth at Mini Marvel School.
@@ -557,18 +756,20 @@
     </section>
 
     <!-- STAFF SECTION -->
-    <section id="staff">
+    <section id="staff" class="alt">
         <h2>Meet Our Team</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
             Our dedicated team of trained and experienced educators committed to your child's development.
         </p>
         
         <div class="staff-grid">
-            <div class="staff-card">
+            <div class="staff-card principal-card">
                 <div class="staff-photo">👨‍💼</div>
                 <div class="staff-name">Muntazir Momin</div>
-                <div class="staff-position">Principal/Manager</div>
-                <p style="margin-top: 10px; font-size: 0.9rem;">Visionary leader with 15+ years in education</p>
+                <div class="staff-position">Founder & Principal</div>
+                <div class="principal-badge">🎓 Visionary Leader</div>
+                <div class="verified-influencer">✓ Verified Influencer</div>
+                <p style="margin-top: 10px; font-size: 0.9rem;">15+ years in education and social impact</p>
             </div>
             <div class="staff-card">
                 <div class="staff-photo">👩‍🏫</div>
@@ -604,7 +805,7 @@
     </section>
 
     <!-- TESTIMONIALS SECTION -->
-    <section id="testimonials" class="alt">
+    <section id="testimonials">
         <h2>What Parents Say</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
             Real experiences from our happy families.
@@ -619,20 +820,20 @@
 
             <div class="testimonial">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p><em>"The curriculum is excellent, and the daily updates keep us connected to our child's activities. Highly recommended!"</em></p>
+                <p><em>"The curriculum is excellent, and the daily updates keep us connected to our child's activities. Highly recommended! And we appreciate Muntazir's vision for quality education."</em></p>
                 <div class="testimonial-author">— Mr. Imran Zargar, Parent</div>
             </div>
 
             <div class="testimonial">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p><em>"Best decision we made for our child's early education. Safe, nurturing, and focused on holistic development."</em></p>
+                <p><em>"Best decision we made for our child's early education. Safe, nurturing, and focused on holistic development. Muntazir's influence in the community is evident in the school's quality."</em></p>
                 <div class="testimonial-author">— Mrs. Noor Bhat, Parent</div>
             </div>
         </div>
     </section>
 
     <!-- ADMISSION SECTION -->
-    <section id="admission">
+    <section id="admission" class="alt">
         <h2>Admission & Fees</h2>
         
         <h3 style="margin-top: 30px; margin-bottom: 20px;">Fee Structure</h3>
@@ -699,7 +900,7 @@
         </div>
 
         <h3 style="margin-top: 40px; margin-bottom: 20px;">Enrollment Form</h3>
-        <div class="contact-container" style="background: var(--light); padding: 30px; border-radius: 8px;">
+        <div class="contact-container" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
             <form>
                 <div class="form-group">
                     <label>Child's Full Name *</label>
@@ -747,7 +948,7 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section id="faq" class="alt">
+    <section id="faq">
         <h2>Frequently Asked Questions</h2>
         
         <div style="max-width: 800px; margin: 30px auto;">
@@ -834,7 +1035,7 @@
     </section>
 
     <!-- POLICIES SECTION -->
-    <section id="policies">
+    <section id="policies" class="alt">
         <h2>School Policies</h2>
         
         <div style="max-width: 900px; margin: 30px auto;">
@@ -871,7 +1072,7 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="alt">
+    <section id="contact">
         <h2>Visit Us & Get in Touch</h2>
         
         <div class="contact-container">
@@ -916,8 +1117,8 @@
             </form>
 
             <div style="margin-top: 30px; text-align: center; background: white; padding: 20px; border-radius: 8px;">
-                <h3>Follow Us</h3>
-                <p>Connect with us on social media for updates and events</p>
+                <h3>Follow Muntazir Momin & Mini Marvel School</h3>
+                <p>Connect with us on social media for updates, educational tips, and school events</p>
                 <div class="social-links">
                     <a href="#" title="Facebook">f</a>
                     <a href="#" title="Instagram">📷</a>
@@ -932,13 +1133,14 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>About Us</h4>
-                <p>Mini Marvel School is dedicated to providing quality foundation education with a focus on holistic development of every child.</p>
+                <h4>About Mini Marvel School</h4>
+                <p>Founded by Muntazir Momin, a social media influencer dedicated to quality education. Mini Marvel School provides premium preschool and crèche services with a focus on holistic child development.</p>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#owner">Founder</a></li>
                     <li><a href="#programs">Programs</a></li>
                     <li><a href="#admission">Admission</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -954,19 +1156,19 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Contact Info</h4>
+                <h4>Follow Muntazir</h4>
                 <ul>
-                    <li>📍 Baharampora, Kunzer</li>
-                    <li>📞 +91-XXXXX-XXXXX</li>
-                    <li>✉️ info@minimarvel.edu.in</li>
-                    <li>🕒 Mon-Fri: 8 AM - 4 PM</li>
+                    <li>📱 Instagram: 250K+ Followers</li>
+                    <li>👍 Facebook: 180K+ Followers</li>
+                    <li>▶️ YouTube: 120K+ Followers</li>
+                    <li>🌍 Social Impact Influencer</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Mini Marvel School Baharampora. All Rights Reserved.</p>
             <div class="credit">
-                Designed & Developed by MAJID
+                Founded by Muntazir Momin | Designed & Developed by MAJID
             </div>
         </div>
     </footer>
